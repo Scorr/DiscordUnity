@@ -7,11 +7,13 @@ namespace DiscordUnity
     {
         public static void WriteLine(string content)
         {
+#if DEBUG
             using (StreamWriter writer = new StreamWriter("DiscordLog.txt", true))
             {
                 writer.WriteLine("[{0}]: {1}", DateTime.Now, content);
                 writer.Close();
             }
+#endif
         }
     }
 }
